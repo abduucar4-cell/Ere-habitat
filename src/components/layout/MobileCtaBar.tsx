@@ -15,7 +15,7 @@ export function MobileCtaBar() {
         </PhoneLink>
         <Link
           href="/devis-panneaux-solaires/"
-          className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-ink text-[0.95rem] font-medium text-white"
+          className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-leaf text-[0.95rem] font-medium text-white"
         >
           <FileText className="size-4" aria-hidden="true" /> Devis gratuit
         </Link>

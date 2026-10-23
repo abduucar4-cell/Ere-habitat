@@ -38,6 +38,11 @@ export default function MentionsLegales() {
         L&apos;ensemble des contenus de ce site (textes, illustrations, logo, mise en page) est la propriété de {site.name}, sauf mention
         contraire. Toute reproduction sans autorisation préalable est interdite.
       </p>
+      <h2>Crédits photos</h2>
+      <p>
+        Photos d&apos;illustration issues de la banque d&apos;images Unsplash (licence Unsplash). Elles illustrent nos solutions et ne
+        représentent pas des réalisations d&apos;ERE Habitat.
+      </p>
       <h2>Informations et estimations</h2>
       <p>
         Les informations publiées sur ce site sont données à titre général. Les estimations du simulateur sont des ordres de grandeur

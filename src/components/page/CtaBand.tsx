@@ -27,14 +27,15 @@ const VARIANTS = {
 export function CtaBand({ variant = "devis" }: { variant?: keyof typeof VARIANTS }) {
   const v = VARIANTS[variant];
   return (
-    <aside className="my-14 overflow-hidden rounded-[20px] bg-ink p-8 text-white md:p-12" aria-label="Demande d'étude">
-      <div className="grid gap-8 md:grid-cols-[1.4fr_1fr] md:items-end">
+    <aside className="relative my-14 overflow-hidden rounded-[var(--radius-card)] bg-ink p-8 text-white md:p-12" aria-label="Demande d'étude">
+      <div aria-hidden="true" className="pointer-events-none absolute -top-24 -right-24 size-72 rounded-full bg-sun/20 blur-2xl" />
+      <div className="relative grid gap-8 md:grid-cols-[1.4fr_1fr] md:items-end">
         <div>
           <p className="font-display text-[1.6rem] leading-tight font-semibold tracking-[-0.02em] text-white md:text-[2rem]">{v.title}</p>
           <p className="mt-3 text-white/75">{v.text}</p>
         </div>
         <div className="flex flex-col gap-3 md:items-end">
-          <LinkButton href={v.href} variant="inverse" size="lg" data-cta={`band-${variant}`}>
+          <LinkButton href={v.href} variant="sun" size="lg" data-cta={`band-${variant}`}>
             {v.label} <ArrowRight className="size-4" aria-hidden="true" />
           </LinkButton>
           <PhoneLink location={`band-${variant}`} className="inline-flex items-center gap-2 px-2 text-[0.95rem] text-white/80 hover:text-white">

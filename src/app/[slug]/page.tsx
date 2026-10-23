@@ -8,6 +8,7 @@ import { RenderBlock, blockHeading, slugify } from "@/components/page/Blocks";
 import { RelatedLinks } from "@/components/page/RelatedLinks";
 import { CtaBand } from "@/components/page/CtaBand";
 import { FaqAccordion } from "@/components/ui/Accordion";
+import type { PhotoKey } from "@/content/photos";
 
 export const dynamicParams = false;
 
@@ -21,6 +22,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const page = getSeoPage((await params).slug);
   if (!page) return {};
   return buildMetadata({ title: page.metaTitle, description: page.metaDescription, path: `/${page.slug}/` });
+}
+
+/** Photo d'en-tête selon le sujet de la page. */
+function photoFor(slug: string): PhotoKey {
+  if (slug === "panneaux-solaires-lisieux" || slug === "panneaux-solaires-bayeux") return "normanHouse";
+  if (slug === "panneaux-solaires-falaise" || slug === "batterie-stockage-calvados") return "bocage";
+  if (slug.includes("installation-batterie") || slug === "autoconsommation-solaire") return "evGarage";
+  if (slug.includes("batterie")) return "batteryWall";
+  if (slug.startsWith("installation")) return "installers";
+  if (slug.startsWith("prix") || slug.startsWith("devis")) return "tileRoof";
+  if (slug === "panneaux-solaires-caen" || slug === "panneaux-solaires-deauville") return "gardenHouse";
+  if (slug === "panneaux-solaires-calvados") return "heroHouses";
+  return "slateRoof";
 }
 
 const PROJECT_BY_SLUG: Record<string, string> = {
@@ -61,6 +75,7 @@ export default async function SeoPageRoute({ params }: Props) {
         lead={page.lead}
         points={page.heroPoints}
         cta={page.primaryCta}
+        photo={photoFor(page.slug)}
       />
 
       <div className="container-x grid gap-12 py-16 md:py-20 lg:grid-cols-12">

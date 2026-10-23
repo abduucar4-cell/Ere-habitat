@@ -2,15 +2,15 @@ import { Clock, Mail, MapPin, Phone } from "lucide-react";
 import { site } from "@/lib/site";
 import { LazyQuickLeadForm } from "@/components/lazy";
 import { PhoneLink } from "@/components/layout/PhoneLink";
+import { Photo } from "@/components/ui/Photo";
 
 export function FinalContact({ index = "08" }: { index?: string }) {
   return (
     <section id="contact" aria-labelledby="contact-title" className="py-20 md:py-28">
       <div className="container-x grid gap-14 lg:grid-cols-12">
         <div className="lg:col-span-5">
-          <p className="eyebrow flex items-center gap-3">
-            <span className="text-ink">{index}</span>
-            <span aria-hidden="true" className="h-px w-8 bg-line-strong" />
+          <p className="inline-flex items-center gap-2 rounded-full bg-leaf-50 px-3.5 py-1.5 text-sm font-semibold text-leaf" data-index={index}>
+            <span aria-hidden="true" className="size-2 rounded-full bg-sun" />
             Contact
           </p>
           <h2 id="contact-title" className="mt-5 text-h2 text-ink">
@@ -23,8 +23,8 @@ export function FinalContact({ index = "08" }: { index?: string }) {
             location="contact-section"
             className="mt-10 inline-flex items-center gap-4 font-display text-[2rem] font-semibold tracking-[-0.03em] text-ink hover:text-leaf"
           >
-            <span className="flex size-12 items-center justify-center rounded-full bg-leaf-50">
-              <Phone className="size-5 text-leaf" aria-hidden="true" />
+            <span className="flex size-12 items-center justify-center rounded-full bg-sun">
+              <Phone className="size-5 text-ink" aria-hidden="true" />
             </span>
             {site.contact.phoneDisplay}
           </PhoneLink>
@@ -44,6 +44,7 @@ export function FinalContact({ index = "08" }: { index?: string }) {
               {site.address.city} ({site.address.postalCode}), {site.address.department}
             </li>
           </ul>
+          <Photo name="tileRoof" ratio="aspect-[16/10]" sizes="(min-width: 1024px) 40vw, 100vw" className="mt-10 hidden lg:block" />
         </div>
         <div className="lg:col-span-7">
           <div className="rounded-[20px] border border-line bg-white p-6 shadow-[0_32px_64px_-48px_rgba(12,23,38,0.4)] md:p-10">

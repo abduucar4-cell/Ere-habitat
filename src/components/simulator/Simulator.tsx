@@ -588,7 +588,7 @@ function SimulatorResult({
             <Button type="button" variant="ghost" onClick={onBack} className="text-white hover:bg-white/10">
               <ArrowLeft className="size-4" aria-hidden="true" /> Modifier mes réponses
             </Button>
-            <Button type="submit" variant="inverse" size="lg" disabled={isSubmitting}>
+            <Button type="submit" variant="sun" size="lg" disabled={isSubmitting}>
               {isSubmitting ? "Envoi…" : "Demander mon étude"} {!isSubmitting && <ArrowRight className="size-4" aria-hidden="true" />}
             </Button>
           </div>

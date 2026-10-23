@@ -12,7 +12,7 @@ const csp = [
   "default-src 'self'",
   `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""} https://www.googletagmanager.com`,
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob: https://www.googletagmanager.com https://www.google-analytics.com",
+  "img-src 'self' data: blob: https://images.unsplash.com https://www.googletagmanager.com https://www.google-analytics.com",
   "font-src 'self'",
   "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com",
   "frame-ancestors 'none'",
@@ -38,6 +38,9 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   images: {
     formats: ["image/avif", "image/webp"],
+    remotePatterns: [{ protocol: "https", hostname: "images.unsplash.com" }],
+    loader: "custom",
+    loaderFile: "./src/lib/image-loader.ts",
   },
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];

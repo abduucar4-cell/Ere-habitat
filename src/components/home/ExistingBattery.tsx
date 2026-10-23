@@ -1,5 +1,6 @@
 import { ArrowRight, Check } from "lucide-react";
 import { LinkButton } from "@/components/ui/Button";
+import { Photo } from "@/components/ui/Photo";
 
 /* ---------- Courbes de principe (illustratives, non issues de mesures) ---------- */
 const W = 560;
@@ -89,9 +90,8 @@ export function ExistingBattery() {
     <section id="deja-equipe" aria-labelledby="existing-title" className="bg-ink py-20 text-white md:py-28">
       <div className="container-x grid gap-14 lg:grid-cols-12 lg:items-center lg:gap-12">
         <div className="lg:col-span-5">
-          <p className="eyebrow flex items-center gap-3 text-white/70">
-            <span className="text-white">02</span>
-            <span aria-hidden="true" className="h-px w-8 bg-white/30" />
+          <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-1.5 text-sm font-semibold text-sun">
+            <span aria-hidden="true" className="size-2 rounded-full bg-sun" />
             Déjà équipé en panneaux
           </p>
           <h2 id="existing-title" className="mt-5 text-h2 text-white">
@@ -104,13 +104,13 @@ export function ExistingBattery() {
           <ul className="mt-8 space-y-3.5">
             {signals.map((s) => (
               <li key={s} className="flex gap-3 text-white/85">
-                <Check className="mt-1 size-4 shrink-0 text-[#7fc493]" aria-hidden="true" strokeWidth={2.4} />
+                <Check className="mt-1 size-4 shrink-0 text-sun" aria-hidden="true" strokeWidth={2.6} />
                 {s}
               </li>
             ))}
           </ul>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-            <LinkButton href="/batterie-solaire-installation-existante/" variant="inverse" size="lg" data-cta="existing-battery">
+            <LinkButton href="/batterie-solaire-installation-existante/" variant="sun" size="lg" data-cta="existing-battery">
               Vérifier la compatibilité
               <ArrowRight className="size-4" aria-hidden="true" />
             </LinkButton>
@@ -119,7 +119,8 @@ export function ExistingBattery() {
             </LinkButton>
           </div>
         </div>
-        <div className="lg:col-span-7">
+        <div className="grid gap-5 lg:col-span-7">
+          <Photo name="batteryWall" ratio="aspect-[16/8]" sizes="(min-width: 1024px) 55vw, 100vw" />
           <DayChart />
         </div>
       </div>

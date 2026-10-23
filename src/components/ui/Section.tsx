@@ -32,7 +32,6 @@ export function Section({
 
 /** En-tête de section : index technique en mono + titre + chapô. */
 export function SectionHeading({
-  index,
   label,
   title,
   intro,
@@ -59,9 +58,13 @@ export function SectionHeading({
       )}
     >
       <div className={cn(align === "split" && "md:col-span-7")}>
-        <p className={cn("eyebrow flex items-center gap-3", inverted && "text-white/70")}>
-          {index ? <span className={cn("text-ink", inverted && "text-white")}>{index}</span> : null}
-          <span aria-hidden="true" className={cn("h-px w-8 bg-line-strong", inverted && "bg-white/30")} />
+        <p
+          className={cn(
+            "inline-flex items-center gap-2 rounded-full bg-white px-3.5 py-1.5 text-sm font-semibold text-leaf ring-1 ring-leaf-100",
+            inverted && "bg-white/10 text-sun ring-white/15",
+          )}
+        >
+          <span aria-hidden="true" className={cn("size-2 rounded-full bg-sun", inverted && "bg-sun")} />
           {label}
         </p>
         <h2 id={id} className={cn("mt-5 text-h2 text-ink", inverted && "text-white")}>

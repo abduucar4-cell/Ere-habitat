@@ -2,32 +2,37 @@
 
 /* ------------------------------------------------------------------
    ERE Habitat — design tokens
-   Bleu nuit (confiance) · blancs et gris minéraux · vert énergie discret
+   Vert ERE (nature, énergie) · jaune soleil · fonds verts très clairs
    ------------------------------------------------------------------ */
 @theme {
   --font-display: var(--font-schibsted), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-plex), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-plex-mono), ui-monospace, SFMono-Regular, monospace;
 
-  --color-ink: #0c1726;
-  --color-ink-800: #14233a;
-  --color-ink-700: #22344f;
-  --color-ink-600: #3b4c66;
-  --color-slate: #5b6878; /* texte secondaire — 5.6:1 sur blanc */
-  --color-mute: #6b7684; /* texte tertiaire — 4.6:1 sur blanc */
-  --color-line: #e2e5e8;
-  --color-line-strong: #cdd2d8;
-  --color-mist: #f4f5f6;
-  --color-paper: #fafaf9;
+  --color-ink: #13291d; /* vert très sombre : textes et sections foncées (15:1 sur blanc) */
+  --color-ink-800: #1b3a28;
+  --color-ink-700: #27493a;
+  --color-ink-600: #3a5c48;
+  --color-slate: #4f6457; /* texte secondaire — 5.8:1 sur fond vert clair */
+  --color-mute: #5f7366;
+  --color-line: #dfe9d9;
+  --color-line-strong: #c4d6bc;
+  --color-mist: #f1f7ec; /* fond vert très clair */
+  --color-paper: #fafcf7;
   --color-white: #ffffff;
 
-  --color-leaf: #1f6e3a; /* vert accessible pour texte et boutons (6.4:1) */
-  --color-leaf-500: #2f8f4e; /* vert ERE — décoratif */
-  --color-leaf-100: #e3f0e6;
-  --color-leaf-50: #f1f7f2;
-  --color-sun: #f2c14e; /* ponctuel, illustrations uniquement */
+  --color-leaf: #1b7a3d; /* vert ERE accessible : boutons et liens (5.4:1) */
+  --color-leaf-600: #14612f;
+  --color-leaf-500: #2f8f4e; /* vert du logo */
+  --color-leaf-400: #4cb050;
+  --color-leaf-300: #9bd13b;
+  --color-leaf-100: #dcefd5;
+  --color-leaf-50: #eef7e9;
+  --color-sun: #f6c31c; /* jaune soleil */
+  --color-sun-200: #fde68a;
+  --color-sun-100: #fff4cc;
 
-  --radius-card: 14px;
+  --radius-card: 22px;
   --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
 
   --text-display: clamp(2.35rem, 1.55rem + 2.6vw, 3.9rem);

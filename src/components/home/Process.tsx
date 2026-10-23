@@ -9,7 +9,7 @@ const steps = [
 
 export function Process() {
   return (
-    <Section tone="mist" labelledBy="process-title">
+    <Section labelledBy="process-title" className="bg-sun-100/60">
       <SectionHeading
         id="process-title"
         index="04"
@@ -19,11 +19,11 @@ export function Process() {
         align="split"
       />
       <ol className="relative grid gap-10 md:grid-cols-4 md:gap-6">
-        <span aria-hidden="true" className="absolute top-5 right-0 left-0 hidden h-px bg-line-strong md:block" />
-        <span aria-hidden="true" className="absolute top-0 bottom-0 left-5 w-px bg-line-strong md:hidden" />
+        <span aria-hidden="true" className="absolute top-5 right-0 left-0 hidden border-t-2 border-dashed border-leaf-400/50 md:block" />
+        <span aria-hidden="true" className="absolute top-0 bottom-0 left-5 border-l-2 border-dashed border-leaf-400/50 md:hidden" />
         {steps.map((s, i) => (
           <li key={s.t} className="relative pl-16 md:pl-0">
-            <span className="absolute left-0 flex size-10 items-center justify-center rounded-full border border-ink bg-white font-mono text-sm text-ink md:relative">
+            <span className="absolute left-0 flex size-10 items-center justify-center rounded-full bg-sun font-display text-base font-bold text-ink shadow-[0_8px_20px_-10px_rgba(200,150,0,0.9)] md:relative">
               {i + 1}
             </span>
             <h3 className="text-[1.2rem] leading-snug text-ink md:mt-8">{s.t}</h3>

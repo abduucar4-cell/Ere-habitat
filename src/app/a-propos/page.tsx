@@ -30,6 +30,7 @@ export default function AboutPage() {
         eyebrow="À propos"
         title="Un bureau d'étude local pour vos projets solaires."
         lead="ERE Habitat — pour Étude, Rénovation, Énergie — accompagne les particuliers et les professionnels du Calvados dans leurs projets photovoltaïques et de stockage d'énergie."
+        photo="bocage"
       />
       <div className="container-x grid gap-16 py-16 md:py-24 lg:grid-cols-12">
         <div className="prose-ere lg:col-span-7">
