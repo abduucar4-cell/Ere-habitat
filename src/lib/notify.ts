@@ -37,15 +37,76 @@ function toRows(lead: Lead): Array<[string, string]> {
 
 export type NotifyResult = { delivered: boolean; channels: string[] };
 
+/** Champs du formulaire Netlify « devis » — doivent correspondre à public/__forms.html. */
+const NETLIFY_FIELDS: Record<string, string> = {
+  formType: "type_formulaire",
+  fullName: "nom",
+  phone: "telephone",
+  email: "email",
+  city: "commune",
+  postalCode: "code_postal",
+  housing: "logement",
+  hasPanels: "deja_equipe",
+  consumption: "consommation",
+  projectType: "projet",
+  budget: "budget",
+  delay: "delai",
+  message: "message",
+  marketing: "accepte_informations",
+};
+
+/**
+ * Netlify Forms : la demande est enregistrée dans l'onglet « Forms » de Netlify
+ * et envoyée par e-mail (notification à configurer dans Netlify).
+ * Nécessite public/__forms.html et la détection des formulaires activée.
+ */
+async function sendToNetlifyForms(lead: Lead, origin: string, page?: string) {
+  const form = new URLSearchParams();
+  form.set("form-name", "devis");
+  for (const [k, v] of Object.entries(lead)) {
+    const name = NETLIFY_FIELDS[k];
+    if (!name || v === undefined || v === "") continue;
+    form.set(name, typeof v === "boolean" ? (v ? "oui" : "non") : String(v));
+  }
+  if (lead.formType === "simulator") {
+    form.set(
+      "simulateur",
+      Object.entries(lead.summary)
+        .filter(([, v]) => v !== null && v !== "")
+        .map(([k, v]) => `${k} : ${v}`)
+        .join("\n"),
+    );
+  }
+  if (page) form.set("page", page);
+  const res = await fetch(`${origin}/__forms.html`, {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: form.toString(),
+    signal: AbortSignal.timeout(8000),
+  });
+  return res.ok;
+}
+
 /**
  * Transmet la demande au(x) canal(aux) configuré(s).
  * Aucune donnée n'est stockée par le site lui-même.
  */
-export async function notifyLead(lead: Lead, meta: { page?: string; receivedAt: string }): Promise<NotifyResult> {
+export async function notifyLead(
+  lead: Lead,
+  meta: { page?: string; receivedAt: string; origin?: string },
+): Promise<NotifyResult> {
   const channels: string[] = [];
   if (process.env.LEAD_DRY_RUN === "1") return { delivered: true, channels: ["dry-run"] };
   const payload = { ...lead, website: undefined, meta };
   const body = JSON.stringify(payload);
+
+  if (meta.origin && process.env.LEAD_NETLIFY_FORMS !== "0") {
+    try {
+      if (await sendToNetlifyForms(lead, meta.origin, meta.page)) channels.push("netlify-forms");
+    } catch {
+      /* canal indisponible : on tente les suivants */
+    }
+  }
 
   const webhook = process.env.LEAD_WEBHOOK_URL;
   if (webhook) {

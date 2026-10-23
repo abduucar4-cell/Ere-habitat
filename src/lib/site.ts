@@ -21,9 +21,9 @@ export const site = {
     "ERE Habitat conçoit et commercialise des solutions photovoltaïques et de stockage d'énergie. L'installation est réalisée par des installateurs professionnels qualifiés, partenaires d'ERE Habitat, dont l'identité et les qualifications figurent sur chaque devis.",
 
   contact: {
-    phoneDisplay: "02 XX XX XX XX", // [À COMPLÉTER : numéro de téléphone]
-    phoneHref: "tel:+33000000000", // [À COMPLÉTER : numéro au format international]
-    email: "contact@ere-habitat.com", // [À COMPLÉTER : adresse e-mail vérifiée]
+    phoneDisplay: "07 56 84 93 04",
+    phoneHref: "tel:+33756849304",
+    email: "erehabitat@gmail.com",
     hours: "Du lundi au vendredi, 9h – 18h", // [À COMPLÉTER : horaires réels]
   },
 

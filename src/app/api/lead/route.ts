@@ -52,6 +52,7 @@ export async function POST(req: NextRequest) {
     const result = await notifyLead(lead, {
       page: req.headers.get("referer") ?? undefined,
       receivedAt: new Date().toISOString(),
+      origin: req.nextUrl.origin,
     });
     if (!result.delivered) {
       return NextResponse.json(
