@@ -1,0 +1,216 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------
+   ERE Habitat — design tokens
+   Bleu nuit (confiance) · blancs et gris minéraux · vert énergie discret
+   ------------------------------------------------------------------ */
+@theme {
+  --font-display: var(--font-schibsted), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-plex), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, SFMono-Regular, monospace;
+
+  --color-ink: #0c1726;
+  --color-ink-800: #14233a;
+  --color-ink-700: #22344f;
+  --color-ink-600: #3b4c66;
+  --color-slate: #5b6878; /* texte secondaire — 5.6:1 sur blanc */
+  --color-mute: #6b7684; /* texte tertiaire — 4.6:1 sur blanc */
+  --color-line: #e2e5e8;
+  --color-line-strong: #cdd2d8;
+  --color-mist: #f4f5f6;
+  --color-paper: #fafaf9;
+  --color-white: #ffffff;
+
+  --color-leaf: #1f6e3a; /* vert accessible pour texte et boutons (6.4:1) */
+  --color-leaf-500: #2f8f4e; /* vert ERE — décoratif */
+  --color-leaf-100: #e3f0e6;
+  --color-leaf-50: #f1f7f2;
+  --color-sun: #f2c14e; /* ponctuel, illustrations uniquement */
+
+  --radius-card: 14px;
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --text-display: clamp(2.35rem, 1.55rem + 2.6vw, 3.9rem);
+  --text-display--line-height: 1.04;
+  --text-display--letter-spacing: -0.035em;
+  --text-h2: clamp(1.9rem, 1.4rem + 1.8vw, 3rem);
+  --text-h2--line-height: 1.08;
+  --text-h2--letter-spacing: -0.028em;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 88px;
+  }
+  body {
+    background: var(--color-white);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  ::selection {
+    background: var(--color-leaf-100);
+    color: var(--color-ink);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-leaf);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .container-x {
+    width: 100%;
+    max-width: 1240px;
+    margin-inline: auto;
+    padding-inline: 20px;
+  }
+  @media (min-width: 768px) {
+    .container-x {
+      padding-inline: 32px;
+    }
+  }
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-slate);
+  }
+  .hairline {
+    border-color: var(--color-line);
+  }
+  /* Prose éditoriale (pages SEO, blog, légal) */
+  .prose-ere {
+    max-width: 68ch;
+    color: var(--color-ink-700);
+  }
+  .prose-ere > * + * {
+    margin-top: 1.1em;
+  }
+  .prose-ere h2 {
+    font-size: 1.75rem;
+    line-height: 1.2;
+    color: var(--color-ink);
+    margin-top: 2.2em;
+  }
+  .prose-ere h3 {
+    font-size: 1.25rem;
+    color: var(--color-ink);
+    margin-top: 1.8em;
+  }
+  .prose-ere ul {
+    padding-left: 1.2em;
+    list-style: none;
+  }
+  .prose-ere ul li {
+    position: relative;
+    padding-left: 0.4em;
+  }
+  .prose-ere ul li + li {
+    margin-top: 0.45em;
+  }
+  .prose-ere ul li::before {
+    content: "";
+    position: absolute;
+    left: -0.9em;
+    top: 0.72em;
+    width: 6px;
+    height: 1px;
+    background: var(--color-leaf-500);
+  }
+  .prose-ere a {
+    color: var(--color-leaf);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .prose-ere strong {
+    color: var(--color-ink);
+    font-weight: 600;
+  }
+}
+
+/* Révélation douce au scroll — désactivée si prefers-reduced-motion */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.animate-rise {
+  animation: rise 0.9s var(--ease-out-soft) both;
+}
+@keyframes draw {
+  from {
+    stroke-dashoffset: var(--len, 600);
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.animate-draw {
+  stroke-dasharray: var(--len, 600);
+  animation: draw 1.8s var(--ease-out-soft) both;
+}
+
+@keyframes flow {
+  to {
+    stroke-dashoffset: -48;
+  }
+}
+.energy-flow {
+  animation: flow 2.4s linear infinite;
+}
+
+@keyframes expand {
+  from {
+    height: 0;
+    opacity: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+    opacity: 1;
+  }
+}
+@keyframes collapse {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
