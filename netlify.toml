@@ -1,0 +1,8 @@
+# Configuration Netlify — Next.js (le runtime Next.js de Netlify s'applique automatiquement)
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"
+  NEXT_TELEMETRY_DISABLED = "1"
