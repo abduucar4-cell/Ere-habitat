@@ -32,7 +32,7 @@ test("FAQPage uniquement sur /faq/", async ({ page }) => {
 
 test("robots.txt, sitemap et pages non indexables", async ({ page, request }) => {
   const robots = await (await request.get("/robots.txt")).text();
-  expect(robots).toContain("Sitemap: https://www.ere-habitat.com/sitemap.xml");
+  expect(robots).toContain("Sitemap: https://ere-habitat.com/sitemap.xml");
   expect(robots).toContain("Disallow: /api/");
 
   const sitemap = await (await request.get("/sitemap.xml")).text();

@@ -65,14 +65,14 @@ scripts/                     Outils (placeholders, captures, géométrie de l'il
 
 1. Pousser le dépôt sur GitHub, l'importer dans Vercel (framework détecté automatiquement).
 2. Renseigner les variables d'environnement (`.env.example`) — au minimum `NEXT_PUBLIC_SITE_URL` et **un canal de notification** (`LEAD_WEBHOOK_URL` ou `RESEND_API_KEY` + `LEAD_NOTIFICATION_EMAIL`). Sans canal, l'API renvoie une erreur 503 et le formulaire invite à appeler : aucune demande n'est perdue silencieusement.
-3. Ajouter le domaine (ex. `www.ere-habitat.com`) et rediriger le domaine nu vers `www`.
+3. Ajouter le domaine (ex. `ere-habitat.com`) et rediriger `www` vers le domaine sans www (adresse principale : ere-habitat.com).
 4. Les prévisualisations Vercel ne sont pas indexées (`robots.txt` bloquant hors production).
 
 Autre hébergeur Node : `npm run build && npm start` (Node ≥ 20.9). Mettre alors à jour `site.legal.host`.
 
 ### Google Search Console
 1. Ajouter une propriété **Domaine** et valider par enregistrement DNS TXT (recommandé), ou une propriété **Préfixe d'URL** avec `NEXT_PUBLIC_GSC_VERIFICATION` (balise méta générée automatiquement).
-2. Soumettre `https://www.ere-habitat.com/sitemap.xml`.
+2. Soumettre `https://ere-habitat.com/sitemap.xml`.
 3. Demander l'indexation de l'accueil et des pages Caen / Calvados.
 
 ### Google Business Profile

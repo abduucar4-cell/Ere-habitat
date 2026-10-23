@@ -23,6 +23,6 @@ export default defineConfig({
     url: `http://localhost:${PORT}`,
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
-    env: { LEAD_DRY_RUN: "1", LEAD_RATE_LIMIT: "30", NEXT_PUBLIC_SITE_URL: "https://www.ere-habitat.com" },
+    env: { LEAD_DRY_RUN: "1", LEAD_RATE_LIMIT: "30", NEXT_PUBLIC_SITE_URL: "https://ere-habitat.com" },
   },
 });

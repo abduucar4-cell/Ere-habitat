@@ -12,6 +12,6 @@ export function cn(...inputs: ClassValue[]) {
 
 /** Absolute URL from a site-relative path, always with a trailing slash for pages. */
 export function absoluteUrl(path = "/") {
-  const base = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.ere-habitat.com").replace(/\/$/, "");
+  const base = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://ere-habitat.com").replace(/\/$/, "");
   return `${base}${path.startsWith("/") ? path : `/${path}`}`;
 }

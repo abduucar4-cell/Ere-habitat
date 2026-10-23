@@ -19,7 +19,7 @@ test("toutes les pages du sitemap répondent, avec un H1 unique, un title et une
     expect(title.length, `${path} title`).toBeGreaterThan(20);
     expect(title.length, `${path} title trop long`).toBeLessThanOrEqual(75);
     expect(desc?.length ?? 0, `${path} description`).toBeGreaterThan(70);
-    expect(canonical, `${path} canonical`).toBe(`https://www.ere-habitat.com${path}`);
+    expect(canonical, `${path} canonical`).toBe(`https://ere-habitat.com${path}`);
     expect(titles.has(title), `title dupliqué : ${title}`).toBeFalsy();
     expect(descriptions.has(desc!), `description dupliquée sur ${path}`).toBeFalsy();
     titles.add(title);

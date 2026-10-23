@@ -13,7 +13,7 @@ export const site = {
   name: "ERE Habitat",
   legalName: "ERE Habitat", // Dénomination exacte telle qu'inscrite au registre
   tagline: "Étude · Rénovation · Énergie",
-  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.ere-habitat.com").replace(/\/$/, ""),
+  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://ere-habitat.com").replace(/\/$/, ""),
   locale: "fr_FR",
 
   /** Rôle réel de l'entreprise — affiché sur le site, ne pas surestimer. */
