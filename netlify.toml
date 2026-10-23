@@ -6,3 +6,7 @@
 [build.environment]
   NODE_VERSION = "22"
   NEXT_TELEMETRY_DISABLED = "1"
+
+# Module officiel Next.js de Netlify (rendu serveur, routes API, images)
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
