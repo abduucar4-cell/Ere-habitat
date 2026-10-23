@@ -1,3 +1,7 @@
+import type { PhotoKey } from "./photos";
+
+export type FeatureIcon = "sun" | "ruler" | "file" | "clipboard" | "battery" | "plug" | "shield" | "smartphone" | "home" | "leaf";
+
 export type FaqItem = { q: string; a: string };
 
 export type Block =
@@ -13,6 +17,14 @@ export type Block =
       columns: [string, string];
       rows: Array<{ label: string; a: string; b: string }>;
     }
+  | {
+      type: "features";
+      id?: string;
+      h2: string;
+      intro?: string;
+      items: Array<{ icon: FeatureIcon; title: string; text: string }>;
+    }
+  | { type: "gallery"; id?: string; h2?: string; photos: Array<{ name: PhotoKey; caption: string }> }
   | { type: "cta"; variant: "devis" | "batterie" | "simulateur" }
   | { type: "simulator"; h2?: string }
   | { type: "leadForm"; h2: string; intro?: string; variant: "quick" | "detailed" };

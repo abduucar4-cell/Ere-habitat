@@ -52,7 +52,9 @@ const nextConfig: NextConfig = {
       { source: "/batterie", destination: "/batterie-stockage-solaire/", permanent: true },
       { source: "/photovoltaique-caen", destination: "/panneaux-solaires-caen/", permanent: true },
       { source: "/realisations", destination: "/nos-realisations/", permanent: true },
-      { source: "/qui-sommes-nous", destination: "/a-propos/", permanent: true },
+      { source: "/a-propos", destination: "/qui-sommes-nous/", permanent: true },
+      { source: "/a-propos/", destination: "/qui-sommes-nous/", permanent: true },
+      { source: "/nous-contacter", destination: "/contact/", permanent: true },
     ];
   },
 };

@@ -1,4 +1,6 @@
-import type { Block } from "@/content/types";
+import { BatteryCharging, ClipboardCheck, FileText, Home, Leaf, PlugZap, Ruler, ShieldCheck, Smartphone, Sun } from "lucide-react";
+import type { Block, FeatureIcon } from "@/content/types";
+import { Photo } from "@/components/ui/Photo";
 import { CtaBand } from "./CtaBand";
 import { LazyDetailedLeadForm, LazyQuickLeadForm, LazySimulator } from "@/components/lazy";
 
@@ -13,7 +15,7 @@ export function slugify(s: string) {
 
 export function blockHeading(b: Block): string | null {
   if (b.type === "cta") return null;
-  if (b.type === "simulator") return b.h2 ?? null;
+  if (b.type === "simulator" || b.type === "gallery") return b.h2 ?? null;
   return b.h2;
 }
 
@@ -24,6 +26,22 @@ function H2({ children }: { children: string }) {
     </h2>
   );
 }
+
+const ICONS: Record<FeatureIcon, typeof Sun> = {
+  sun: Sun,
+  ruler: Ruler,
+  file: FileText,
+  clipboard: ClipboardCheck,
+  battery: BatteryCharging,
+  plug: PlugZap,
+  shield: ShieldCheck,
+  smartphone: Smartphone,
+  home: Home,
+  leaf: Leaf,
+};
+
+/** Couleurs de pastille en alternance : vert, jaune, vert clair. */
+const TONES = ["bg-leaf text-white", "bg-sun text-ink", "bg-leaf-300 text-ink"] as const;
 
 export function RenderBlock({ block, defaultProject }: { block: Block; defaultProject?: string }) {
   switch (block.type) {
@@ -134,6 +152,44 @@ export function RenderBlock({ block, defaultProject }: { block: Block; defaultPr
               </tbody>
             </table>
           </div>
+        </section>
+      );
+    case "features":
+      return (
+        <section className="py-10 first:pt-0">
+          <H2>{block.h2}</H2>
+          {block.intro ? <p className="mt-4 max-w-2xl text-slate">{block.intro}</p> : null}
+          <ul className="mt-8 grid gap-4 sm:grid-cols-2">
+            {block.items.map((it, i) => {
+              const Icon = ICONS[it.icon];
+              return (
+                <li key={it.title} className="rounded-[var(--radius-card)] border border-line bg-white p-6 transition-shadow duration-300 hover:shadow-[0_20px_40px_-28px_rgba(19,41,29,0.45)]">
+                  <span className={`flex size-11 items-center justify-center rounded-2xl ${TONES[i % TONES.length]}`}>
+                    <Icon className="size-5" aria-hidden="true" />
+                  </span>
+                  <h3 className="mt-5 text-[1.15rem] text-ink">{it.title}</h3>
+                  <p className="mt-2 text-[0.98rem] text-slate">{it.text}</p>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      );
+    case "gallery":
+      return (
+        <section className="py-10 first:pt-0">
+          {block.h2 ? <H2>{block.h2}</H2> : null}
+          <ul className={`grid gap-4 sm:grid-cols-3 ${block.h2 ? "mt-8" : ""}`}>
+            {block.photos.map((p) => (
+              <li key={p.name}>
+                <figure>
+                  <Photo name={p.name} ratio="aspect-[4/3]" sizes="(min-width: 1024px) 22vw, (min-width: 640px) 33vw, 100vw" />
+                  <figcaption className="mt-2.5 text-sm text-slate">{p.caption}</figcaption>
+                </figure>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-3 text-xs text-slate">Photos d&apos;illustration.</p>
         </section>
       );
     case "cta":

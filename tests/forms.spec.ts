@@ -4,6 +4,7 @@ import { dismissConsent } from "./helpers";
 test("formulaire rapide : erreurs accessibles puis envoi réussi", async ({ page }) => {
   await page.goto("/contact/");
   await dismissConsent(page);
+  await page.locator("#formulaire").scrollIntoViewIfNeeded(); // formulaire monté à l'approche (chargement différé)
   const form = page.getByRole("form", { name: "Demande de rappel rapide" });
   await form.getByRole("button", { name: "Être rappelé" }).click();
   await expect(form.getByText("Indiquez votre nom")).toBeVisible();

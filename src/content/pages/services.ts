@@ -28,6 +28,24 @@ export const servicePages: SeoPage[] = [
         ],
       },
       {
+        type: "features",
+        h2: "Ce que comprend notre accompagnement",
+        items: [
+          { icon: "clipboard", title: "Étude gratuite de votre projet", text: "Analyse de votre toiture, de vos ombrages et de vos factures, avant toute proposition." },
+          { icon: "ruler", title: "Une puissance sur mesure", text: "Le nombre de panneaux est calculé sur votre consommation réelle, pas sur un kit standard." },
+          { icon: "file", title: "Un devis clair et détaillé", text: "Marque, références, garanties constructeur, démarches et calendrier : tout est écrit." },
+          { icon: "shield", title: "Une pose par des professionnels", text: "Installation réalisée par des installateurs qualifiés partenaires, identifiés sur le devis." },
+        ],
+      },
+      {
+        type: "gallery",
+        photos: [
+          { name: "slateRoof", caption: "Panneaux noirs sur toiture en ardoise" },
+          { name: "tileRoof", caption: "Implantation sur toiture en tuiles" },
+          { name: "installers", caption: "Pose par des installateurs qualifiés" },
+        ],
+      },
+      {
         type: "specs",
         h2: "Ce que nous étudions avant de vous proposer une puissance",
         rows: [
@@ -163,6 +181,24 @@ export const servicePages: SeoPage[] = [
         body: [
           "Sans stockage, l'électricité solaire non consommée immédiatement est injectée sur le réseau. Avec une batterie, ce surplus est stocké puis restitué automatiquement en fin de journée, le soir et une partie de la nuit.",
           "La batterie augmente ainsi votre taux d'autoconsommation : la part de votre production que vous utilisez vous-même. Elle ne remplace pas le réseau, qui reste nécessaire en hiver et lors des pointes de consommation.",
+        ],
+      },
+      {
+        type: "features",
+        h2: "Ce qu'une batterie vous apporte",
+        items: [
+          { icon: "battery", title: "Le surplus du jour, utilisé le soir", text: "L'énergie produite en votre absence est stockée puis restituée automatiquement en soirée." },
+          { icon: "home", title: "Compatible avec votre installation", text: "Batterie neuve ou ajoutée à des panneaux existants : nous vérifions la compatibilité de votre onduleur." },
+          { icon: "plug", title: "Fonction secours possible", text: "Alimentation de circuits prioritaires pendant une coupure, avec un système prévu pour cela." },
+          { icon: "smartphone", title: "Suivi depuis votre téléphone", text: "Charge, décharge et autoconsommation visibles dans l'application du fabricant, selon le modèle." },
+        ],
+      },
+      {
+        type: "gallery",
+        photos: [
+          { name: "batteryWall", caption: "Onduleur et batteries dans un local technique" },
+          { name: "evGarage", caption: "Batterie et borne de recharge au garage" },
+          { name: "gardenHouse", caption: "Maison équipée de panneaux solaires" },
         ],
       },
       {

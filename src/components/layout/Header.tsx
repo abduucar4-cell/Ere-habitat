@@ -19,7 +19,7 @@ export function Header() {
       <div className="container-x flex h-[72px] items-center justify-between gap-6">
         <Logo />
 
-        <nav aria-label="Navigation principale" className="hidden lg:block">
+        <nav aria-label="Navigation principale" className="hidden xl:block">
           <ul className="flex items-center gap-1">
             {mainNav.map((item) =>
               "children" in item ? (
@@ -57,7 +57,7 @@ export function Header() {
 
         <div className="flex items-center gap-2">
           <PhoneLink
-            className="hidden items-center gap-2 rounded-full px-3 py-2 text-[0.94rem] font-medium whitespace-nowrap text-ink xl:inline-flex"
+            className="hidden items-center gap-2 rounded-full px-3 py-2 text-[0.94rem] font-medium whitespace-nowrap text-ink 2xl:inline-flex"
             location="header"
           >
             <Phone className="size-4 text-leaf" aria-hidden="true" />

@@ -16,7 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: priority(p.kind),
     })),
-    { url: absoluteUrl("/a-propos/"), lastModified: now, changeFrequency: "yearly", priority: 0.5 },
+    { url: absoluteUrl("/qui-sommes-nous/"), lastModified: now, changeFrequency: "yearly", priority: 0.5 },
     { url: absoluteUrl("/faq/"), lastModified: now, changeFrequency: "monthly", priority: 0.6 },
     { url: absoluteUrl("/contact/"), lastModified: now, changeFrequency: "yearly", priority: 0.6 },
     { url: absoluteUrl("/blog/"), lastModified: now, changeFrequency: "weekly", priority: 0.6 },

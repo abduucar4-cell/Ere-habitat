@@ -56,11 +56,6 @@ export function MobileMenu() {
                 ) : null}
               </li>
             ))}
-            <li className="py-3">
-              <Link href="/contact/" className="block py-1 font-display text-xl text-ink">
-                Contact
-              </Link>
-            </li>
           </ul>
           <div className="mt-8 grid gap-3">
             <Link href="/devis-panneaux-solaires/" className={buttonClasses("primary", "lg", "w-full")}>
@@ -75,7 +70,7 @@ export function MobileMenu() {
   );
 
   return (
-    <div className="lg:hidden">
+    <div className="xl:hidden">
       <button
         type="button"
         className="inline-flex size-11 items-center justify-center rounded-full border border-line text-ink transition-colors hover:bg-mist"
