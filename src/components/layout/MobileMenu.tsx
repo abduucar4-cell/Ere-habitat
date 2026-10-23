@@ -70,7 +70,7 @@ export function MobileMenu() {
   );
 
   return (
-    <div className="xl:hidden">
+    <div className="min-[960px]:hidden">
       <button
         type="button"
         className="inline-flex size-11 items-center justify-center rounded-full border border-line text-ink transition-colors hover:bg-mist"

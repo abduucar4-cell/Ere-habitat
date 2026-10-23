@@ -19,17 +19,18 @@ export function Header() {
       <div className="container-x flex h-[72px] items-center justify-between gap-6">
         <Logo />
 
-        <nav aria-label="Navigation principale" className="hidden xl:block">
-          <ul className="flex items-center gap-1">
+        <nav aria-label="Navigation principale" className="hidden min-[960px]:block">
+          <ul className="flex items-center gap-0.5 xl:gap-1">
             {mainNav.map((item) =>
               "children" in item ? (
                 <li key={item.href} className="group relative">
                   <Link
                     href={item.href}
-                    className="inline-flex items-center gap-1 rounded-full px-3.5 py-2 whitespace-nowrap text-[0.94rem] text-ink-700 transition-colors hover:text-ink"
+                    className="inline-flex items-center gap-1 rounded-full px-2.5 py-2 whitespace-nowrap xl:px-3.5 text-[0.94rem] text-ink-700 transition-colors hover:text-ink"
                     aria-haspopup="true"
                   >
-                    {item.label}
+                    <span className="xl:hidden">{item.short}</span>
+                    <span className="hidden xl:inline">{item.label}</span>
                     <ChevronDown className="size-3.5 text-slate transition-transform duration-300 group-hover:rotate-180 group-focus-within:rotate-180" aria-hidden="true" />
                   </Link>
                   <div className="invisible absolute top-full left-0 pt-2 opacity-0 transition-all duration-300 ease-[var(--ease-out-soft)] group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
@@ -46,8 +47,9 @@ export function Header() {
                 </li>
               ) : (
                 <li key={item.href}>
-                  <Link href={item.href} className="rounded-full px-3.5 py-2 whitespace-nowrap text-[0.94rem] text-ink-700 transition-colors hover:text-ink">
-                    {item.label}
+                  <Link href={item.href} className="rounded-full px-2.5 py-2 whitespace-nowrap xl:px-3.5 text-[0.94rem] text-ink-700 transition-colors hover:text-ink">
+                    <span className="xl:hidden">{item.short}</span>
+                    <span className="hidden xl:inline">{item.label}</span>
                   </Link>
                 </li>
               ),

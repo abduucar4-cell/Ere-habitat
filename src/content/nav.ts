@@ -1,6 +1,7 @@
 export const mainNav = [
   {
     label: "Panneaux photovoltaïques",
+    short: "Panneaux solaires",
     href: "/panneaux-solaires/",
     children: [
       { label: "Nos panneaux photovoltaïques", href: "/panneaux-solaires/" },
@@ -12,6 +13,7 @@ export const mainNav = [
   },
   {
     label: "Batteries de stockage",
+    short: "Batteries",
     href: "/batterie-stockage-solaire/",
     children: [
       { label: "Nos batteries de stockage", href: "/batterie-stockage-solaire/" },
@@ -20,8 +22,8 @@ export const mainNav = [
       { label: "Prix", href: "/prix-batterie-solaire/" },
     ],
   },
-  { label: "Qui sommes-nous", href: "/qui-sommes-nous/" },
-  { label: "Nous contacter", href: "/contact/" },
+  { label: "Qui sommes-nous", short: "Qui sommes-nous", href: "/qui-sommes-nous/" },
+  { label: "Nous contacter", short: "Contact", href: "/contact/" },
 ] as const;
 
 export const footerNav = {
